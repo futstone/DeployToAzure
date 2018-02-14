@@ -1,8 +1,38 @@
+html {
+  background-color: #4e5052;
+  font-family: 'Source Code Pro', monospace;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #91ea39;
+}
+
+p {
+  color: #ffc107;
+}
+
+h1 {
+  color: #ffc107;
+}
+
+h2 {
+  color: #ffc107;
+}
+
+.note {
+  color: #91ea39;
+}
+
+.note-desc {
+  color: #ffc107;
+  font-style: italic;
+  margin-left: 2em;
+}
+
+.taglist {
+  color: #91ea39;
 }

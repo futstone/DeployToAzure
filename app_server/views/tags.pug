@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= 'List of all tags'
+  ul
+    each tag in tags
+      li(class='taglist')= tag

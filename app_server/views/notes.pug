@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= 'Notes'
+  h2= 'Add new note:'
+  div
+    textarea(style='display: block')(placeholder='Add tags here')
+    input(placeholder='Note')
+    input(placeholder='Description')
+    button='Add'
+  hr
+  h2= 'Search notes:'
+  input(placeholder='Filter by tag')
+  button='Ok'
+  ul
+    each note in notes
+      li(class='note')= note.note
+        span(class='note-desc')= note.desc
