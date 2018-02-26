@@ -1,38 +1,63 @@
 html {
-  background-color: #4e5052;
+  background-color: #1d1d1d;
   font-family: 'Source Code Pro', monospace;
 }
 
 body {
   padding: 50px;
+  background-color: #1d1d1d;
+  font-family: 'Source Code Pro', monospace;
+  color: #f4f1d0;
 }
 
-a {
-  color: #91ea39;
-}
-
-p {
-  color: #ffc107;
-}
-
-h1 {
-  color: #ffc107;
-}
-
-h2 {
-  color: #ffc107;
-}
-
-.note {
-  color: #91ea39;
+footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .note-desc {
-  color: #ffc107;
+  color: #f4f1d0b5;
   font-style: italic;
   margin-left: 2em;
 }
 
-.taglist {
-  color: #91ea39;
+.nav-link {
+  padding-left: 0px !important;
+  color: #f4f1d0 !important;
+}
+
+.btn {
+  background-color: #f4f1d0;
+  color: #111;
+  border-color: #f4f1d0;
+  margin-left: 1rem;
+}
+
+.btn:hover {
+  background-color: #8bc34a !important;
+  border-color: #8bc34a !important;
+}
+
+.form-control {
+  color: #f4f1d0;
+  background-color: #fff0 !important;
+  border: 1px solid #f4f1d0 !important;
+  margin-left: 1rem;
+}
+
+input, textarea{
+    color: #f4f1d0 !important;
+}
+
+.nav-link:focus, .nav-link:hover {
+  color: #8bc34a !important;
+}
+
+hr {
+  border : 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgb(244, 240, 207), rgba(244, 240, 207, 0.11), rgba(244, 240, 207, 0.05));
 }

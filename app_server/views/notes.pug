@@ -1,18 +1,31 @@
 extends layout
 
 block content
-  h1= 'Notes'
-  h2= 'Add new note:'
-  div
-    textarea(style='display: block')(placeholder='Add tags here')
-    input(placeholder='Note')
-    input(placeholder='Description')
-    button='Add'
-  hr
-  h2= 'Search notes:'
-  input(placeholder='Filter by tag')
-  button='Ok'
-  ul
-    each note in notes
-      li(class='note')= note.note
-        span(class='note-desc')= note.desc
+  div(class='container')
+    hr
+    div(class='row')
+      div(class='col-3')
+        h3= 'Add new note:'
+      div(class='col-9')
+        form.form-inline
+          input(type='text', class='form-control', id='idNote', placeholder='Note')
+          input(type='text', class='form-control', id='idDesc', placeholder='Description')
+          textarea(class='form-control', id='idTextarea', placeholder='Tags', rows='1')
+          button(type='submit', class='btn')='Add'
+
+    hr
+    div(class='row')
+      div(class='col-3')
+        h3= 'Search:'
+      div(class='col-9')
+        form.form-inline
+          input(type='text', class='form-control', id='idSearch', placeholder='Search')
+          button(type='submit', class='btn')='Ok'
+
+    hr
+    div(class='row')
+      div(class='col')
+        ul
+          each note in notes
+            li(class='note')= note.note
+              span(class='note-desc')= note.desc
