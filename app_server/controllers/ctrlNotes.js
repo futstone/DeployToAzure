@@ -1,15 +1,44 @@
-/* GET home page */
-let noteslist = function(req, res){
-    res.render('notes',{
-        notes:
-        [
-            {note:'git add .', desc:'add all files to the staging area'},
-            {note:'\\n', desc:'..for newline!'},
-            {note:'Note 3', desc:'Description for note 3'},
-            {note:'Note 4', desc:'Description for note 4'},
-            {note:'Note 5', desc:'Description for note 5'}
-        ]});
+const request = require('request');
+const apiURL = require('./apiURLs');
+
+const noteslist = function(req, res) {
+  const path = '/api/notes';
+  const requestOptions = {
+    url: apiURL.server + path,
+    method: 'GET',
+    json: {},
+    qs: {}
+  };
+
+  request(
+    requestOptions,
+    function(err, response, body) {
+      if (err) {
+        res.render('error', {message: err.message});
+      } else if (response.statusCode !== 200) {
+        res.render('error', {message: 'Error accessing API: ' + response.statusMessage + " ("+ response.statusCode + ")"});
+      } else if (!(body instanceof Array)) {
+        res.render('error', {message: 'Unexpected response data'});
+      } else if (!body.length) {
+        res.render('error', {message: 'No documents in collection'});
+      } else {
+        res.render('notes', {notes: body});
+      }
+    }
+  );
 };
+
+// let noteslist = function(req, res){
+//     res.render('notes',{
+//         notes:
+//         [
+//             {note:'git add .', desc:'add all files to the staging area'},
+//             {note:'\\n', desc:'..for newline!'},
+//             {note:'Note 3', desc:'Description for note 3'},
+//             {note:'Note 4', desc:'Description for note 4'},
+//             {note:'Note 5', desc:'Description for note 5'}
+//         ]});
+// };
 module.exports = {
     noteslist
 };
