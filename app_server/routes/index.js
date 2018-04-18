@@ -9,5 +9,6 @@ const ctrlTags = require('../controllers/ctrlTags');
 router.get('/', ctrlMain.index);
 router.get('/notes', ctrlNotes.noteslist);
 router.get('/tags', ctrlTags.taglist);
+router.route('/notes').post(ctrlNotes.addData);
 
 module.exports = router;

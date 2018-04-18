@@ -14,7 +14,15 @@ const tagslist = function(req, res) {
 
 const addtag = function(req, res) {
   //res.status(201).json("Add tag");
-  tagsModel.create(req.body, function(err, newTag) {
+  // tagsModel.create(req.body, function(err, newTag) {
+  //   if (err) {
+  //     res.status(400).json(err);
+  //   } else {
+  //     res.status(201).json(newTag);
+  //   }
+  // })
+
+  tagsModel.collection.insert(req.body.tags, function(err, newTag) {
     if (err) {
       res.status(400).json(err);
     } else {

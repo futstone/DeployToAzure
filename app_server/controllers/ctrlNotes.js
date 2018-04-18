@@ -1,6 +1,33 @@
 const request = require('request');
 const apiURL = require('./apiURLs');
 
+const addData = function(req, res) {
+  const path = '/api/notes';
+
+  const postdata = {
+    tags: req.body.tags.split(" "),
+    note: req.body.note,
+    desc: req.body.desc
+  };
+
+  const requestOptions = {
+    url: apiURL.server + path,
+    method: 'POST',
+    json: postdata
+  };
+
+  request(
+    requestOptions,
+    function(err, response) {
+        if (response.statusCode === 201) {
+          res.redirect('/notes');
+        } else {
+          res.render('error', {message: 'Error adding data: ' +  response.statusMessage + ' (' + response.statusCode + ')'});
+        }
+    }
+  );
+};
+
 const noteslist = function(req, res) {
   const path = '/api/notes';
   const requestOptions = {
@@ -40,5 +67,6 @@ const noteslist = function(req, res) {
 //         ]});
 // };
 module.exports = {
-    noteslist
+    noteslist,
+    addData
 };
